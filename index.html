@@ -46,6 +46,21 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
         }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -64,8 +79,10 @@
         title="YouTube video player" frameborder="0" allowfullscreen>
     </iframe>
     <br>
-    <img src="https://wallpapers.com/images/hd/marco-van-basten-lifting-trophy-lsipvm1km0p997t4.jpg" alt="Maran">
-    
+    <img src="https://wallpapers.com/images/hd/marco-van-basten-lifting-trophy-lsipvm1km0p997t4.jpg" alt="Maran" id="imagem1">
+    <br>
+    <button onclick="trocarImagem()">Trocar Imagem</button>
+
     <h2>Pestana</h2>
     <p>
         Desde o momento que eu nasci, sempre quis ser um ser aquático. <br>
@@ -80,6 +97,47 @@
         title="YouTube video player" frameborder="0" allowfullscreen>
     </iframe>
     <br>
-    <img src="https://tse1.mm.bing.net/th?q=When%20Does%20The%20Formula%201%202024%20Season%20Start&w=1280&h=720&c=5&rs=1&p=0" alt="Pestana">
+    <img src="https://tse1.mm.bing.net/th?q=When%20Does%20The%20Formula%201%202024%20Season%20Start&w=1280&h=720&c=5&rs=1&p=0" alt="Pestana" id="imagem2">
+    
+    <!-- Parte da Data e Hora -->
+    <h2>Data e Hora Atualizada</h2>
+    <p id="dataHora">Clique no botão abaixo para ver a data e hora atual.</p>
+    <button onclick="mostrarDataHora()">Mostrar Data e Hora</button>
+
+    <script>
+        // Função para alterar o estilo do parágrafo
+        function alterarEstilo() {
+            var paragrafo = document.getElementsByTagName("p")[0]; // Pega o primeiro parágrafo
+            paragrafo.style.color = "#FF6347"; // Cor vermelha
+            paragrafo.style.fontSize = "30px"; // Tamanho da fonte maior
+            paragrafo.style.fontWeight = "bold"; // Deixar em negrito
+            paragrafo.style.fontFamily = "Courier New, Courier, monospace"; // Alterar a fonte
+        }
+
+        // Função para mostrar a data e hora atualizada
+        function mostrarDataHora() {
+            var data = new Date();
+            var dataHora = document.getElementById("dataHora");
+            dataHora.innerHTML = "Data e Hora Atual: " + data.toLocaleString();
+        }
+
+        // Função para trocar entre duas imagens
+        function trocarImagem() {
+            var imagem1 = document.getElementById("imagem1");
+            var imagem2 = document.getElementById("imagem2");
+
+            if (imagem1.src === "https://wallpapers.com/images/hd/marco-van-basten-lifting-trophy-lsipvm1km0p997t4.jpg") {
+                imagem1.src = "https://via.placeholder.com/300/4682B4/FFFFFF?text=Nova+Imagem+1";
+            } else {
+                imagem1.src = "https://wallpapers.com/images/hd/marco-van-basten-lifting-trophy-lsipvm1km0p997t4.jpg";
+            }
+
+            if (imagem2.src === "https://tse1.mm.bing.net/th?q=When%20Does%20The%20Formula%201%202024%20Season%20Start&w=1280&h=720&c=5&rs=1&p=0") {
+                imagem2.src = "https://via.placeholder.com/300/FFD700/FFFFFF?text=Nova+Imagem+2";
+            } else {
+                imagem2.src = "https://tse1.mm.bing.net/th?q=When%20Does%20The%20Formula%201%202024%20Season%20Start&w=1280&h=720&c=5&rs=1&p=0";
+            }
+        }
+    </script>
 </body>
 </html>
